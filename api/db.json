@@ -24,6 +24,12 @@
       "title": "Big stream",
       "description": "this is a big stream",
       "id": 7
+    },
+    {
+      "title": "I created this stream",
+      "description": "This was made y me",
+      "userId": "105372850373365135965",
+      "id": 8
     }
   ]
 }
