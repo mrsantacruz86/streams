@@ -12,10 +12,16 @@ class StreamList extends Component {
     if (stream.userId === this.props.currentUserId) {
       return (
         <div className="right floated content">
-          <Link to={`/streams/edit/${stream.id}`} className="ui compact icon button primary">
+          <Link
+            to={`/streams/edit/${stream.id}`}
+            className="ui compact icon button primary"
+          >
             <i className="edit outline icon" />
           </Link>
-          <Link to={`/streams/delete/${stream.id}`} className="ui compact icon button negative">
+          <Link
+            to={`/streams/delete/${stream.id}`}
+            className="ui compact icon button negative"
+          >
             <i className="trash alternate outline icon" />
           </Link>
         </div>
@@ -30,7 +36,9 @@ class StreamList extends Component {
           {this.renderAdmin(stream)}
           <i className="large middle aligned icon camera" />
           <div className="content">
-            {stream.title}
+            <Link to={`/streams/${stream.id}`} className="header">
+              {stream.title}
+            </Link>
             <div className="description">{stream.description}</div>
           </div>
         </div>
