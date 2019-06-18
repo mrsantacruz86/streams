@@ -1,0 +1,14 @@
+{
+  "name": "streams",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mrsantacruz86/streams.git",
+  "author": "Nelson Diaz <abnerdc86@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "node-media-server": "^2.1.0"
+  },
+  "scripts":{
+    "start": "node index.js"
+  }
+}
