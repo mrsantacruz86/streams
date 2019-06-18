@@ -3,26 +3,31 @@
     {
       "title": "My Stream",
       "description": "This is a great stream.",
+      "userId": "105372850373365135965",
       "id": 1
     },
     {
       "title": "Other Stream",
       "description": "Here's some stream",
+      "userId": "105372850373365135965",
       "id": 2
     },
     {
       "title": "Me Streaming Component Reuse!",
       "description": "This stream is about refactoring!!!",
+      "userId": "105372850373365135965",
       "id": 4
     },
     {
       "title": "How to learn React",
       "description": "React is not as easy as the people says.",
+      "userId": "105372850373365135965",
       "id": 6
     },
     {
       "title": "Big stream",
       "description": "this is a big stream",
+      "userId": "105372850373365135965",
       "id": 7
     },
     {
@@ -30,6 +35,42 @@
       "description": "This was made y me",
       "userId": "105372850373365135965",
       "id": 8
+    },
+    {
+      "title": "I created this stream",
+      "description": "This was made y me",
+      "userId": "105372850373365135965",
+      "id": 3
+    },
+    {
+      "title": "I created this stream",
+      "description": "This was made y me",
+      "userId": "105372850373365135965",
+      "id": 12
+    },
+    {
+      "title": "I created this stream",
+      "description": "This was made y me",
+      "userId": "105372850373365135965",
+      "id": 13
+    },
+    {
+      "title": "I created this stream",
+      "description": "This was made y me",
+      "userId": "105372850373365135965",
+      "id": 14
+    },
+    {
+      "title": "I created this stream",
+      "description": "This was made y me",
+      "userId": "105372850373365135965",
+      "id": 8
+    },
+    {
+      "title": "I created this stream",
+      "description": "This was made y me",
+      "userId": "105372850373365135965",
+      "id": 15
     }
   ]
 }
