@@ -2,7 +2,7 @@
   "name": "streams",
   "version": "1.0.0",
   "description": "Video Streamimg platform.",
-  "devDependencies": {
+  "dependencies": {
     "concurrently": "^4.1.1"
   },
   "repository": "https://github.com/mrsantacruz86/streams.git",
