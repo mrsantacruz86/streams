@@ -1,0 +1,22 @@
+{
+  "name": "streams",
+  "version": "1.0.0",
+  "description": "Video Streamimg platform.",
+  "devDependencies": {
+    "concurrently": "^4.1.1"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/mrsantacruz86/streams.git",
+  "author": "Nelson Diaz <abnerdc86@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"yarn api\" \"yarn rtmpserver\" \"yarn client\"",
+    "client": "cd client && yarn start",
+    "rtmpserver": "cd rtmpserver && yarn start",
+    "api": "cd api && yarn start",
+    "build": "cd client && yarn build",
+    "heroku-postbuild": "yarn build",
+    "deploy": "git push heroku master"
+  }
+}

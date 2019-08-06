@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { fetchStreams } from "../../actions";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchStreams } from '../../actions';
+import { Link } from 'react-router-dom';
 
 class StreamList extends Component {
   componentDidMount() {
@@ -12,16 +12,10 @@ class StreamList extends Component {
     if (stream.userId === this.props.currentUserId) {
       return (
         <div className="right floated content">
-          <Link
-            to={`/streams/edit/${stream.id}`}
-            className="ui compact icon button primary"
-          >
+          <Link to={`/streams/edit/${stream.id}`} className="ui compact icon button primary">
             <i className="edit outline icon" />
           </Link>
-          <Link
-            to={`/streams/delete/${stream.id}`}
-            className="ui compact icon button negative"
-          >
+          <Link to={`/streams/delete/${stream.id}`} className="ui compact icon button negative">
             <i className="trash alternate outline icon" />
           </Link>
         </div>
@@ -34,7 +28,7 @@ class StreamList extends Component {
       return (
         <div className="item" key={stream.id}>
           {this.renderAdmin(stream)}
-          <i className="large middle aligned icon camera" />
+          <i className="large middle aligned icon video" />
           <div className="content">
             <Link to={`/streams/${stream.id}`} className="header">
               {stream.title}
@@ -49,7 +43,7 @@ class StreamList extends Component {
   renderCreate = () => {
     if (this.props.isSignedIn) {
       return (
-        <div style={{ textAlign: "right" }}>
+        <div style={{ textAlign: 'right' }}>
           <Link to="/streams/new" className="ui button primary">
             Create Stream
           </Link>
