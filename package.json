@@ -15,6 +15,9 @@
     "rtmpserver": "cd rtmpserver && yarn start",
     "api": "cd api && yarn start",
     "build": "cd client && yarn build",
-    "deploy": "git push heroku master"
+    "deploy": "git push heroku master",
+    "install:api": "cd api && yarn install",
+    "install:rtmpserver": "cd rtmpserver && yarn install",
+    "install": "install:api && install:rtmpserver"
   }
 }
