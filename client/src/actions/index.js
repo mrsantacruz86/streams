@@ -1,4 +1,5 @@
 import streams from "../apis/streams";
+import { db } from "../apis/fbStreams";
 import history from "../history";
 import {
   SIGN_IN,
@@ -25,7 +26,11 @@ export const signOut = () => {
 
 export const createStream = formValues => async (dispatch, getState) => {
   const { userId } = getState().auth;
-  const response = await streams.post("/streams", { ...formValues, userId });
+  console.log(userId);
+  // const response = await streams.post("/streams", { ...formValues, userId });
+  const response = await db
+    .collection("streams")
+    .add({ ...formValues, userId });
   dispatch({ type: CREATE_STREAM, payload: response.data });
   history.push("/");
 };
