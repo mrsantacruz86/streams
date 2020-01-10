@@ -12,10 +12,16 @@ class StreamList extends Component {
     if (stream.userId === this.props.currentUserId) {
       return (
         <div className="right floated content">
-          <Link to={`/streams/edit/${stream.id}`} className="ui compact icon button primary">
+          <Link
+            to={`/streams/edit/${stream.id}`}
+            className="ui compact icon button primary"
+          >
             <i className="edit outline icon" />
           </Link>
-          <Link to={`/streams/delete/${stream.id}`} className="ui compact icon button negative">
+          <Link
+            to={`/streams/delete/${stream.id}`}
+            className="ui compact icon button negative"
+          >
             <i className="trash alternate outline icon" />
           </Link>
         </div>
@@ -28,7 +34,7 @@ class StreamList extends Component {
       return (
         <div className="item" key={stream.id}>
           {this.renderAdmin(stream)}
-          <i className="large middle aligned icon video" />
+          <i className="large middle aligned icon podcast" />
           <div className="content">
             <Link to={`/streams/${stream.id}`} className="header">
               {stream.title}
@@ -71,7 +77,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchStreams }
-)(StreamList);
+export default connect(mapStateToProps, { fetchStreams })(StreamList);
