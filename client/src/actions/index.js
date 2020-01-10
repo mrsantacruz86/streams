@@ -1,6 +1,6 @@
-import streams from '../apis/streams';
-import { db } from '../apis/fbStreams';
-import history from '../history';
+import streams from "../apis/streams";
+import { db } from "../apis/fbStreams";
+import history from "../history";
 import {
   SIGN_IN,
   SIGN_OUT,
@@ -9,7 +9,7 @@ import {
   FETCH_STREAMS,
   EDIT_STREAM,
   DELETE_STREAM
-} from './types';
+} from "./types";
 
 export const signIn = userId => {
   return {
@@ -27,19 +27,20 @@ export const signOut = () => {
 export const createStream = formValues => (dispatch, getState) => {
   const { userId } = getState().auth;
   // console.log(userId);
-  db.collection('streams')
+  db.collection("streams")
     .add({ ...formValues, userId })
     .then(docRef => {
-      console.log('Stream Added! ID: ', docRef.id);
-      history.push('/');
+      // console.log("Stream Added! ID: ", docRef.id);
+      dispatch({ type: CREATE_STREAM });
+      history.push("/");
     })
     .catch(error => {
-      console.error('Error adding document: ', error);
+      console.error("Error adding document: ", error);
     });
 };
 
 export const fetchStreams = () => dispatch => {
-  db.collection('streams').onSnapshot(snapshot => {
+  db.collection("streams").onSnapshot(snapshot => {
     let streams = [];
     snapshot.forEach(doc => {
       streams.push({ ...doc.data(), id: doc.id });
@@ -49,29 +50,42 @@ export const fetchStreams = () => dispatch => {
 };
 
 export const fetchStream = id => dispatch => {
-  db.collection('streams')
+  db.collection("streams")
     .doc(id)
-    .snapshot.forEach(doc => {
-      dispatch({ type: FETCH_STREAMS, payload: { ...doc.data(), id: doc.id } });
+    .get()
+    .then(doc => {
+      if (doc.exists) {
+        dispatch({
+          type: FETCH_STREAM,
+          payload: { ...doc.data(), id: doc.id }
+        });
+      } else {
+        console.log("No such document!");
+      }
+    })
+    .catch(error => {
+      console.log("Error getting the stream:", error);
     });
 };
 
-export const editStream = (id, formValues) => async dispatch => {
-  const response = await streams.patch(`/streams/${id}`, formValues);
-  dispatch({ type: EDIT_STREAM, payload: response.data });
-  history.push('/');
+export const editStream = (id, formValues) => dispatch => {
+  db.collection("streams")
+    .doc(id)
+    .set({ ...formValues }, { merge: true });
+  dispatch({ type: EDIT_STREAM });
+  history.push("/");
 };
 
 export const deleteStream = id => dispatch => {
-  db.collection('streams')
+  db.collection("streams")
     .doc(id)
     .delete()
     .then(() => {
       dispatch({ type: DELETE_STREAM, payload: id });
-      history.push('/');
-      console.log('Document successfully deleted!');
+      history.push("/");
+      console.log("Document successfully deleted!");
     })
     .catch(error => {
-      console.error('Error removing document: ', error);
+      console.error("Error removing document: ", error);
     });
 };

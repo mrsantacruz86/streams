@@ -15,14 +15,17 @@ const streamReducer = (state = {}, action) => {
     case FETCH_STREAM:
       return { ...state, [action.payload.id]: action.payload };
 
+    // Firebase will listen for changes in the entire collection of streams
+    // and automatically update the state so there is no need to implement a
+    // state updates through reducers.
     case CREATE_STREAM:
-      return { ...state, [action.payload.id]: action.payload };
+      return { ...state };
 
     case EDIT_STREAM:
-      return { ...state, [action.payload.id]: action.payload };
+      return { ...state };
 
     case DELETE_STREAM:
-      return _.omit(state, action.payload);
+      return { ...state };
 
     default:
       return state;

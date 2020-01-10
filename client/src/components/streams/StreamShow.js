@@ -45,6 +45,7 @@ class StreamShow extends Component {
       <div>
         <video ref={this.videoRef} style={{ width: "100%" }} controls />
         <h1>{title}</h1>
+        <h4>Stream ID: {this.props.match.params.id}</h4>
         <h5>{description}</h5>
       </div>
     );
@@ -55,7 +56,4 @@ const mapStateToProps = (state, ownProps) => {
   return { stream: state.streams[ownProps.match.params.id] };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchStream }
-)(StreamShow);
+export default connect(mapStateToProps, { fetchStream })(StreamShow);
